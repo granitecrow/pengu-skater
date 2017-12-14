@@ -9,7 +9,29 @@ public class PieceSpawner : MonoBehaviour {
 
     public void Spawn()
     {
-        currentPiece = LevelManager.Instance.GetPiece(type, 0); //get me a piece from the pool
+        int amountToChoose = 0;
+        switch (type)
+        {
+            case PieceType.none:
+                amountToChoose = 0;
+                break;
+            case PieceType.ramp:
+                amountToChoose = LevelManager.Instance.ramps.Count;
+                break;
+            case PieceType.longblock:
+                amountToChoose = LevelManager.Instance.longblocks.Count;
+                break;
+            case PieceType.jump:
+                amountToChoose = LevelManager.Instance.jumps.Count;
+                break;
+            case PieceType.slide:
+                amountToChoose = LevelManager.Instance.slides.Count;
+                break;
+            default:
+                break;
+        }
+       
+        currentPiece = LevelManager.Instance.GetPiece(type, Random.Range(0, amountToChoose)); //get me a piece from the pool
         currentPiece.gameObject.SetActive(true);
         currentPiece.transform.SetParent(transform, false);
     }

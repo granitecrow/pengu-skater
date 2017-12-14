@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager Instance { set; get; }
+    public bool SHOW_COLLIDER = true;
 
-    private const bool SHOW_COLLIDER = true;
+    public static LevelManager Instance { set; get; }
 
     // Level Spawning mechanic
     private const float DISTANCE_BEFORE_SPAWN = 100.0f;
@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
     public List<Segment> segments = new List<Segment>();
 
     // Gameplay
-    private bool isMoving = false;
+    //private bool isMoving = false;
 
     private void Awake()
     {
@@ -53,6 +53,23 @@ public class LevelManager : MonoBehaviour
             // Generate a segment
             GenerateSegment();
         }
+    }
+
+    private void Update()
+    {
+        if (currentSpawnZ - cameraContainer.position.z < DISTANCE_BEFORE_SPAWN)
+        {
+            // generate a segment
+            GenerateSegment();
+        }
+
+        if (amountOfActiveSegments >= MAX_SEGMENTS_ON_SCREEN)
+        {
+            // segments are spawned in front of the queue so remove and decrement
+            segments[amountOfActiveSegments - 1].DeSpawn();
+            amountOfActiveSegments--;
+        }
+
     }
 
     private void GenerateSegment()
