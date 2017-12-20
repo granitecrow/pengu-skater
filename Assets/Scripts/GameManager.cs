@@ -22,6 +22,11 @@ public class GameManager : MonoBehaviour
     private float modifierScore = 1.0f;
     private int lastScore;
 
+    // Death menu
+    public Animator deathMenuAnim;
+    public Text finalScoreText, finalCoinText;
+
+
     private void Awake()
     {
         motor = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMotor>();
@@ -64,6 +69,19 @@ public class GameManager : MonoBehaviour
     {
         modifierScore = 1.0f + modifierAmount;
         modifierText.text = "x" + modifierScore.ToString("0.0");
+    }
+
+    public void OnPlayButton()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Game");
+    }
+
+    public void OnDeath()
+    {
+        isDead = true;
+        finalScoreText.text = score.ToString("0");
+        finalCoinText.text = coinScore.ToString("0");
+        deathMenuAnim.SetTrigger("Dead");
     }
 
 }
