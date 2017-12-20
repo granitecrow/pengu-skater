@@ -37,7 +37,7 @@ public class MobileInput : MonoBehaviour
         #region Standalone Inputs
         if (Input.GetMouseButtonDown(0))
         {
-            Debug.Log("Hello! Position is " + Input.mousePosition);
+            //Debug.Log("Hello! Position is " + Input.mousePosition);
             tap = true;
             startTouch = Input.mousePosition;
         }
@@ -75,7 +75,7 @@ public class MobileInput : MonoBehaviour
             else if (Input.GetMouseButton(0))
             {
                 swipeDelta = (Vector2)Input.mousePosition - startTouch;
-                Debug.Log(swipeDelta);
+                //Debug.Log(swipeDelta);
             }
         }
 

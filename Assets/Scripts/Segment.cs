@@ -21,7 +21,7 @@ public class Segment : MonoBehaviour {
         for (int i = 0; i < pieces.Length; i++)
         {
             
-            Debug.Log("Seg ID: " + SegId + " number of pieces in seg: " + pieces.Length);
+            //Debug.Log("Seg ID: " + SegId + " number of pieces in seg: " + pieces.Length);
             foreach (MeshRenderer mr in pieces[i].GetComponentsInChildren<MeshRenderer>())
             {
                 mr.enabled = LevelManager.Instance.SHOW_COLLIDER;
