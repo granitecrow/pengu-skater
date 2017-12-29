@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class GlacierSpawner : MonoBehaviour {
 
-    private const float DISTANCE_TO_RESPAWN = 10.0f; //distance behind penguin to spawn glaciers
+    private const float DISTANCE_TO_RESPAWN = 15.0f; //distance behind penguin to spawn glaciers
 
-    public float scrollSpeed = -2.0f;
+    public float scrollSpeed = -6.0f;
     public float totalLength;
     public bool IsScrolling { set; get; }
 

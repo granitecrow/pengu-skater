@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour
     public bool isDead { set; get; }
 
     // UI and UI fields
+    public Animator gameCanvas;
     public Text scoreText;
     public Text coinText;
     public Text modifierText;
@@ -43,6 +44,8 @@ public class GameManager : MonoBehaviour
             isGameStarted = true;
             motor.StartRunning();
             FindObjectOfType<GlacierSpawner>().IsScrolling = true;
+            FindObjectOfType<CameraMotor>().IsMoving = true;
+            gameCanvas.SetTrigger("Show");
         }
 
         if (isGameStarted && !isDead)

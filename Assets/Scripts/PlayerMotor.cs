@@ -24,8 +24,8 @@ public class PlayerMotor : MonoBehaviour {
     private int desiredLane = 1; // 0 = left; 1 = middle; 2 = right
 
     // speed modifier
-    private float originalSpeed = 7.0f;
-    private float speed = 7.0f;
+    private float originalSpeed = 8.0f;
+    private float speed = 8.0f;
     private float speedIncreaseLastTick;
     private float speedIncreaseTime = 2.5f;
     private float speedIncreaseAmount = 0.1f;
