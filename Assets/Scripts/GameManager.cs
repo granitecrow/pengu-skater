@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public bool isDead { set; get; }
 
     // UI and UI fields
-    public Animator gameCanvas;
+    public Animator gameCanvas, simpleMenu, diamondIcon;
     public Text scoreText;
     public Text coinText;
     public Text modifierText;
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
             FindObjectOfType<GlacierSpawner>().IsScrolling = true;
             FindObjectOfType<CameraMotor>().IsMoving = true;
             gameCanvas.SetTrigger("Show");
+            simpleMenu.SetTrigger("Hide");
         }
 
         if (isGameStarted && !isDead)
@@ -62,11 +63,11 @@ public class GameManager : MonoBehaviour
 
     public void GetCoin()
     {
+        diamondIcon.SetTrigger("Collect");
         coinScore++;
         coinText.text = coinScore.ToString("0");
         score += COIN_SCORE_AMOUNT;
         scoreText.text = score.ToString("0");
-
     }
 
     public void UpdateModifier(float modifierAmount)
