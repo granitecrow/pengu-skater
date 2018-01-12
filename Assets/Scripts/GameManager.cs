@@ -83,6 +83,7 @@ public class GameManager : MonoBehaviour
 
     public void OnDeath()
     {
+        gameCanvas.SetTrigger("Hide");
         isDead = true;
         finalScoreText.text = score.ToString("0");
         finalCoinText.text = coinScore.ToString("0");
